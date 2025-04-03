@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    top:50px;
+  }
+
+  .cursor, .follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none; 
+    transform: translate(-50%, -50%);
+  }
+  
+  .cursor {
+    width: 12px;
+    height: 12px;
+    background-color: rgb(196, 171, 30); 
+    z-index: 12; 
+  }
+  
+  .follower {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(191, 180, 117);; 
+    transition: transform 0.1s ease-out; 
+    z-index: 11;
+  }
+
+  .header {
+    mix-blend-mode: normal !important;
+  }
+  
+
+  .Main {
+    position: relative;
+    top: -70px;
+    left: 480px;
+    background-color: rgb(141, 126, 82);
+    padding: 40px;
+    border-radius: 10px;
+    width: 500px !important;
+    perspective: 500px;
+    transition: transform 0.3s ease, box-shadow 1s ease;
+
+  }
+
+  .Main:hover {
+    transform: scale(1.02);
+    box-shadow: 30px 20px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: rgb(208, 199, 183);
+    animation: bounceIn 1s;
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    80% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  form {
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    border: 2px solid rgb(141, 126, 82);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgb(141, 126, 82);
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    color:rgb(72, 62, 30);
+    border-color: rgb(72, 62, 30);
+    outline: none;
+    box-shadow: 0 0 8px rgb(141, 126, 82);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  button {
+    padding: 10px;
+    background-color: rgb(81, 72, 45);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    transform: scale(1.02);
+  }
+
+  #thankYouMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color:  rgb(208, 199, 183);
+    opacity: 0;
+    animation: fadeInMessage 0.2s forwards;
+  }
+  
+  @keyframes fadeInMessage {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .cont{
+    width:580px;
+    height:115px;
+    margin: 0;
+    color: rgb(208, 199, 183);
+    background-color: rgb(141, 126, 82);
+    border-radius: 10px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 8px;
+    position: relative;
+    top:240px;
+    left: -100px;
+  }
+
+  .cont>h1{
+    position: relative;
+    left: 5px;
+  }
+
+  .cont>h2{
+    position: relative;
+    top: -1px;
+    left:-200px;
+    font-size: 16px;
+  }
+
+  .cont>h2>p{
+    font-size:10px;
+  }
+
+  .cont>h3>img{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -70px;
+    left: 75px;
+  }
+
+  .cont>h3>a{
+    position: relative;
+    top:-55px;
+    left: -10px;
+    font-size: 10px;
+    text-decoration: none;
+    color: rgb(208, 199, 183);
+  }
+
+  .cont>h4>img{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: -115px;
+    left: 270px;
+  }
+
+  .cont>h4>a{
+    position: relative;
+    top:-100px;
+    left: 210px;
+    font-size: 10px;
+    text-decoration: none;
+    color: rgb(208, 199, 183);
+  }

@@ -1,0 +1,154 @@
+.cursor, .follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none; 
+  transform: translate(-50%, -50%);
+}
+
+.cursor {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(196, 171, 30); 
+  z-index: 12; 
+}
+
+.follower {
+  width: 25px;
+  height: 25px;
+  background-color: rgb(191, 180, 117);; 
+  transition: transform 0.1s ease-out; 
+  z-index: 11;
+}
+  
+  .Main {
+    color: #333;
+    width: 1519px;
+    position: relative;
+    top: -10px;
+    left:-8px;   
+  } 
+    
+  div.hero {
+    height: 60vh;
+    background-image: url('/downtown/images/mainimages/Saytqlavniybanner.jpg');
+    background-repeat: center no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+  }
+
+  div .hero-content {
+    position: relative;
+    text-align: center;
+    color:white;
+    animation: slideIn 1s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section.story {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: white;
+  }
+
+  section.story h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: rgb(142, 108, 49);
+  }
+
+  section.story p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    color:black;
+  }
+
+  section.team {
+    padding: 60px 20px;
+  }
+
+  section.team h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #444;
+  }
+
+  .team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .team-member {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .team-member:hover {
+    transform: translateY(-45px);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  .team-member h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333;
+  }
+
+  .team-member p {
+    font-size: 0.9em;
+    color: #777;
+  }
+
+  footer {
+    position: relative;
+    bottom:-5px;
+    left: -10px;
+    width: 1480px;
+    height: 20px;
+    padding: 20px;
+    text-align: center;
+    background: #333;
+    color: #fff;
+  }

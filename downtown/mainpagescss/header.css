@@ -1,0 +1,195 @@
+#main-header{
+    display: flex;
+    width: 1450px;
+    margin-top:15px;
+    margin-left: 55px;
+    height:10vh;
+    position:fixed;
+    top:0px;
+    z-index: 10;
+}
+
+.header{
+    mix-blend-mode:difference !important;
+}
+
+.A{
+    transition: color 0.3s ease-in-out;
+    color:white;
+    font-size:45px;
+    margin-right:1115px;
+    cursor: none;
+}   
+
+.menu-icon{
+    margin-top: 10px;
+    width: 28px;
+    height: 28px;
+    cursor: none;
+    transition: color 0.3s ease;
+}
+
+
+.menu-icon.active i {
+    display: block;
+    font-size: 30px;
+    transition: color 0.3s ease;
+}
+
+.menu-icon-1{
+    display: block;
+    height:2px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+.menu-icon-2{
+    display: block;
+    height:2px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+.menu-icon-3{
+    display: block;
+    height: 3px !important; 
+    background-color: white;
+    margin: 6px 0;
+    width: 17px;
+}
+.curtain-menus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-color: rgb(158, 113, 35); 
+    display: flex;
+    transition: transform 1s ease, opacity 1s ease;
+    transform: translateY(-100%); 
+    z-index: 9; 
+    font-size: 50px;
+    margin-top: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    cursor: none;
+}
+
+.curtain-menus.active {
+    transition: transform 1s ease, opacity 0.3s ease;
+    transform: translateY(0);
+}
+
+.curtain-menu{
+    transition: color 1s ease-out;
+    cursor: none;
+    color: rgb(255, 255, 255);
+    height: 90px;
+    position: relative;
+    top: 300px;
+    left: 110px;
+}
+
+.curtain-menu.slidedown{
+    animation: slide 3s ease-out;
+}
+
+@keyframes slide {
+    from{
+        opacity: 0;
+        transform: translateY(-100px);
+    } 
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.curtain-menu.active{
+    transition: color 1s ease-in-out;
+    color:rgb(183, 149, 49);
+}
+
+.homepagelists{
+    position: relative;
+    top: 370px;
+    left: -10px;
+    width: 130px;
+    height: 0px;            
+    transition: height 0.5s ease;
+    overflow: hidden;
+}
+
+#homepagelist3{
+    left: -40px;
+}
+
+#homepagelist4{
+    left: -60px;
+}
+
+#homepagelist4 .grid2{
+    left: 35px;
+}
+
+.homepagelists.active{
+    transition: height 1s ease;
+    height: 50px;
+}
+
+#homepagelist3.active{
+    height: 260px;
+}
+
+.homepagelists.active:hover{
+    color:rgb(121, 97, 25);
+}
+
+.grid {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    transition: color 1s ease-in-out;
+    position: absolute;
+    font-size: 13px;
+    cursor: none;
+}
+
+.grid2{
+    margin-top:30px;
+}
+
+.grid3{
+    margin-top:60px;
+}
+
+.grid4{
+    margin-top:90px;
+}
+
+.grid5{
+    margin-top:120px;
+}
+
+.grid6{
+    margin-top:150px;
+}
+
+.grid7{
+    margin-top:180px;
+}
+
+.grid8{
+    margin-top:210px;
+}
+
+.grid9{
+    margin-top:240px;
+}
+
+.grid:hover{
+    color:rgb(183, 149, 49);
+}
+
+main{
+    transition: opacity 0.5s ease; 
+}
