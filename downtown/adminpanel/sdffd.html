@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Photo Upload & Delete</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    /* Container for photo cards */
+    #photoContainer {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    #photoContainer .photo-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      width: 200px;
+      text-align: center;
+    }
+    #photoContainer .photo-card img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+    /* Overlay styling for both modals */
+    #formOverlay, #deleteOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Popup form styling */
+    #popupForm, #deleteModal {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #popupForm label, #deleteModal h2 {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    #popupForm input[type="text"],
+    #popupForm input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #popupForm button, #deleteModal button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    #popupForm .submit-btn {
+      background-color: #28a745;
+      color: #fff;
+    }
+    #popupForm .cancel-btn, #deleteModal .cancel-btn {
+      background-color: #dc3545;
+      color: #fff;
+    }
+    /* Delete modal list styling */
+    #deleteModal .delete-item-btn {
+      background-color: #e00606;
+      color: #fff;
+      margin-left: 10px;
+    }
+    #deleteList {
+      list-style: none;
+      padding: 0;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    #deleteList li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Admin control buttons -->
+  <button id="openFormBtn">Add New Photo</button>
+  <button id="openDeleteBtn">Delete Photos</button>
+
+  <!-- Main area where photo cards are added -->
+  <div id="photoContainer">
+    <!-- Photo cards will be appended here -->
+  </div>
+
+  <!-- Overlay with the add photo popup form -->
+  <div id="formOverlay">
+    <div id="popupForm">
+      <form id="photoForm">
+        <label for="photoInput">Photo:</label>
+        <input type="file" id="photoInput" name="photo" accept="image/*" required>
+
+        <label for="descInput">Description:</label>
+        <input type="text" id="descInput" name="description" placeholder="Enter photo description" required>
+
+        <label for="nameInput">Image Name:</label>
+        <input type="text" id="nameInput" name="imageName" placeholder="Enter image name" required>
+
+        <div style="text-align: right;">
+          <button type="submit" class="submit-btn">Submit</button>
+          <button type="button" id="cancelForm" class="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Overlay with the delete modal -->
+  <div id="deleteOverlay">
+    <div id="deleteModal">
+      <h2>Delete Photos</h2>
+      <ul id="deleteList">
+        <!-- List of photos will be populated here -->
+      </ul>
+      <div style="text-align: right;">
+        <button id="deleteAllBtn" style="background-color:#e00606; color:#fff;">Delete All</button>
+        <button id="cancelDeleteBtn" class="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Elements for the add photo form
+    const openFormBtn = document.getElementById('openFormBtn');
+    const formOverlay = document.getElementById('formOverlay');
+    const cancelForm = document.getElementById('cancelForm');
+    const photoForm = document.getElementById('photoForm');
+    const photoContainer = document.getElementById('photoContainer');
+
+    // Elements for the delete modal
+    const openDeleteBtn = document.getElementById('openDeleteBtn');
+    const deleteOverlay = document.getElementById('deleteOverlay');
+    const deleteList = document.getElementById('deleteList');
+    const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+    const deleteAllBtn = document.getElementById('deleteAllBtn');
+
+    // Show the add photo form overlay
+    openFormBtn.addEventListener('click', () => {
+      formOverlay.style.display = 'flex';
+    });
+
+    // Hide the add photo form overlay and reset the form
+    cancelForm.addEventListener('click', () => {
+      formOverlay.style.display = 'none';
+      photoForm.reset();
+    });
+
+    // Handle add photo form submission
+    photoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const photoInput = document.getElementById('photoInput');
+      const description = document.getElementById('descInput').value;
+      const imageName = document.getElementById('nameInput').value;
+
+      if (photoInput.files.length === 0) {
+        alert('Please select a photo.');
+        return;
+      }
+
+      const photoFile = photoInput.files[0];
+      const imageUrl = URL.createObjectURL(photoFile);
+
+      // Create a new photo card
+      const photoCard = document.createElement('div');
+      photoCard.classList.add('photo-card');
+
+      // Create a title element
+      const titleElem = document.createElement('h3');
+      titleElem.innerText = imageName;
+
+      // Create an image element
+      const imgElem = document.createElement('img');
+      imgElem.src = imageUrl;
+      imgElem.alt = imageName;
+
+      // Create a description element
+      const descElem = document.createElement('p');
+      descElem.innerText = description;
+
+      // Append title, image, and description to the photo card
+      photoCard.appendChild(titleElem);
+      photoCard.appendChild(imgElem);
+      photoCard.appendChild(descElem);
+
+      // Append the photo card to the photo container
+      photoContainer.appendChild(photoCard);
+
+      // Reset the form and hide the overlay
+      photoForm.reset();
+      formOverlay.style.display = 'none';
+    });
+
+    // Function to populate the delete list with current photos
+    function populateDeleteList() {
+      deleteList.innerHTML = ''; // Clear previous list
+      const photoCards = photoContainer.querySelectorAll('.photo-card');
+
+      photoCards.forEach((card, index) => {
+        // Retrieve the image name (or use a default if not available)
+        const title = card.querySelector('h3') ? card.querySelector('h3').innerText : `Photo ${index+1}`;
+        const li = document.createElement('li');
+        li.innerText = title;
+
+        // Create a delete button for the individual photo card
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete-item-btn');
+        deleteBtn.innerText = 'Delete';
+        deleteBtn.addEventListener('click', () => {
+          // Remove the specific photo card
+          photoContainer.removeChild(card);
+          // Refresh the delete list
+          populateDeleteList();
+        });
+
+        li.appendChild(deleteBtn);
+        deleteList.appendChild(li);
+      });
+
+      // If no photos exist, show a message
+      if (photoContainer.querySelectorAll('.photo-card').length === 0) {
+        const li = document.createElement('li');
+        li.innerText = 'No photos available.';
+        deleteList.appendChild(li);
+      }
+    }
+
+    // Show the delete modal overlay and populate the list when the button is clicked
+    openDeleteBtn.addEventListener('click', () => {
+      populateDeleteList();
+      deleteOverlay.style.display = 'flex';
+    });
+
+    // Hide the delete modal overlay
+    cancelDeleteBtn.addEventListener('click', () => {
+      deleteOverlay.style.display = 'none';
+    });
+
+    // Delete all photos when the "Delete All" button is clicked
+    deleteAllBtn.addEventListener('click', () => {
+      if (confirm('Are you sure you want to delete all photos?')) {
+        photoContainer.innerHTML = '';
+        populateDeleteList();
+      }
+    });
+  </script>
+</body>
+</html>
