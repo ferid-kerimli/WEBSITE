@@ -598,178 +598,41 @@ section{
     top:1px;
 }
 
-/* Mobile Responsive Styles */
-@media only screen and (max-width: 768px) {
+   @media (max-width: 767px) {
 
-    /* HEADER & NAVIGATION */
-    #main-header {
-      margin-left: 10px;
-      padding: 10px;
-      height: auto;
+
+   }
+   @media (min-width: 1920px){
+    #main-header{
+        display: flex;
+        width: 1920px;
+        margin-top:15px;
+        margin-left: 55px;
+        height:10vh;
+        position:fixed;
+        top:0px;
+        z-index: 10;
     }
-    .A {
-      font-size: 30px;
-      margin-right: 20px;
+    #section1{
+        padding-top: 70px;
+        position: relative;
+        overflow: hidden;   
+        width: 1920px;
+        height: 940px;
     }
-    .menu-icon {
-      margin-top: 5px;
-      width: 24px;
-      height: 24px;
-    }
-    /* Adjust curtain menu for smaller screens */
-    .curtain-menus {
-      padding-left: 20px;
-      font-size: 30px;
-    }
-    .curtain-menu {
-      height: 50px;
-      padding-bottom: 10px;
-    }
-    .homepagelists {
-      width: auto;
-      padding-left: 20px;
-    }
-    
-    /* SECTION 1 (Hero Section) */
-    #section1 {
-      width: 100%;
-      height: auto;
-      padding-top: 70px; /* maintain header space */
-    }
-    .main1 {
-      width: 90%;
-      margin: 50px auto 0;
-      padding: 20px;
-    }
-    .main1h1 {
-      font-size: 40px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    .main1p {
-      font-size: 14px;
-      width: 100%;
-    }
-    .buttons {
-      flex-direction: column;
-      width: 90%;
-      margin: 20px auto;
-      position: static;
-    }
-    .whatwedo, .viewworks {
-      width: 80%;
-      height: 50px;
-      line-height: 50px;
-      margin: 10px auto;
-    }
-    .circlearound {
-      margin: 20px auto;
-      left: 0;
-      right: 0;
-    }
-    
-    /* SECTION 2 (Studio/Our Team Section) */
-    .main2 {
-      padding: 20px;
-    }
-    .main2h2 {
-      font-size: 40px;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-    .main2p2, .main2p3 {
-      width: 90%;
-      padding-left: 10px;
-      font-size: 14px;
-    }
-    .main2-img1 {
-      position: relative;
-      width: 90%;
-      height: auto;
-      right: 0;
-      top: 0;
-      margin: 20px auto;
-    }
-    .main2-about {
-      flex-direction: column;
-      align-items: center;
-      padding-left: 0;
-    }
-    .main2-about-h1 {
-      text-align: center;
-      font-size: 18px;
-    }
-    
-    /* SECTION 3 (Services/Ideas Section) */
-    .main3 {
-      padding: 20px;
-    }
-    .main3-heading {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-    .main3h3, .main3h4 {
-      font-size: 40px;
-      width: 100%;
-      text-align: center;
-    }
-    .buttons2 {
-      width: 90%;
-      margin: 20px auto;
-      padding-left: 0;
-    }
-    .whatwedo2 {
-      width: 80%;
-      height: 50px;
-      line-height: 50px;
-      margin: 10px auto;
-    }
-    .containers {
-      flex-direction: column;
-      align-items: center;
-      height: auto;
-    }
-    .container1, .container2, .container3, .container4 {
-      width: 90%;
-      margin: 10px 0;
-      background-size: cover;
-    }
-    .containers h1 {
-      font-size: 24px;
-      margin: 10px;
-    }
-    .containers-p {
-      font-size: 14px;
-      margin: 10px;
-    }
-    
-    /* SECTION 4 (Meet Our Team Section) */
-    .main4 {
-      padding: 20px;
-    }
-    .main4h5, .main4h6 {
-      font-size: 40px;
-      padding-left: 10px;
-      text-align: center;
-    }
-    .main4p4, .main4p5 {
-      width: 90%;
-      padding-left: 10px;
-      font-size: 14px;
-      text-align: center;
-    }
-    .buttons3 {
-      left: 0;
-      width: 90%;
-      margin: 20px auto;
-      padding-left: 0;
-    }
-    .whatwedo3 {
-      width: 80%;
-      height: 50px;
-      line-height: 50px;
-      margin: 10px auto;
+    .A{
+        transition: color 0.3s ease-in-out;
+        color:white;
+        font-size:45px;
+        margin-right:1415px;
+        cursor: none;
+    }   
+     .menu-icon{
+        margin-top: 10px;
+         width: 28px;
+        height: 28px;
+        cursor: none;
+        transition: color 0.3s ease;
     }
   }
   
