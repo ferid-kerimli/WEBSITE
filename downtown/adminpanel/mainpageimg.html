@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Panel</title>
   <style>
-    /* Global Reset */
     * {
       margin: 0;
       padding: 0;
@@ -21,16 +20,14 @@
       color: inherit;
     }
 
-    /* Container Layout */
     .container {
       display: flex;
       min-height: 100vh;
     }
 
-    /* Sidebar */
     aside {
       width: 240px;
-      background-color: #1e293b;
+      background-color: #081d3e;
       color: white;
       display: flex;
       flex-direction: column;
@@ -73,7 +70,6 @@
       background-color: #dc2626;
     }
 
-    /* Main Content Area */
     .main-content {
       flex: 1;
       display: flex;
@@ -91,21 +87,30 @@
       padding: 8px;
       border: 1px solid #d1d5db;
       border-radius: 4px;
+      background-color: #081d3e;
+
     }
+    
+    input::placeholder{
+        color:white;
+    }
+
+    input{
+        color: white;
+    }
+
     main {
       flex: 1;
       padding: 16px;
       overflow-y: auto;
     }
 
-    /* Sections Grid */
     .sections-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
     }
 
-    /* Individual Section Cards */
     .section {
       background-color: #ffffff;
       border-radius: 8px;
@@ -121,10 +126,35 @@
       font-size: 18px;
       font-weight: bold;
     }
-    .section img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
+
+    .btn{
+        width: 400px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .button1{
+        width: 180px;
+        height: 40px;
+        background-color: #081d3e;
+        border: none;
+        color: white 
+    }
+    .button2{
+        width: 180px;
+        height: 40px;
+        background-color: #e00606;
+        border: none;
+        color: white;
+    }
+    .button3{
+        width: 180px;
+        height: 40px;
+        background-color: #0e9b06;
+        border: none;
+        color: white;
     }
   </style>
 </head>
@@ -151,28 +181,17 @@
         <input type="search" placeholder="Search..." />
       </header>
       <main>
-        <div class="sections-grid" href="/downtown/adminpanel/mainpage.html">
-          <a id="main" class="section" href="/downtown/adminpanel/mainpageimg.html">
-            <h2>Main</h2>
-            <img src="/downtown/images/adminpanelimages/main.png" alt="Main Section Image">
-          </a>
-
-          <a id="portfolio" class="section" href="/downtown/adminpanel/portf.html">
-            <h2>Portfolio</h2>
-            <img src="/downtown/images/adminpanelimages/portfolio.png" alt="Portfolio Section Image">
-          </a>
-
-          <a id="decorations" class="section" href="/downtown/adminpanel/decor.html">
-            <h2>Decorations</h2>
-            <img src="/downtown/images/adminpanelimages/decorations.png" alt="Decorations Section Image">
-          </a>
-
-          <a id="settings" class="section" href="/downtown/adminpanel/info.html">
-            <h2>Information</h2>
-            <img src="/downtown/images/adminpanelimages/information.png" alt="Settings Section Image">
-          </a>
-        </div>
-      </main>
+        <div class="sections-grid">
+          <div id="decorations" class="section">
+              <h2>Main Image</h2>
+               <div class="btn">
+               <button class="button1">ADD</button>
+               <button class="button2">DELETE</button>
+               <button class="button3">UPDATE</button>
+               </div>
+            </div>
+         </div>
+        </main>
     </div>
   </div>
 </body>
