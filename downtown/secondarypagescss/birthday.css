@@ -100,14 +100,9 @@ body {
 }
 
 .card h3 {
-  margin: 10px;
+  margin-left: 20px;
   font-size: 1.1rem;
   font-weight: 500;
-  color: #fff;
-}
-.card p {
-  margin: 0 10px 10px;
-  font-size: 0.9rem;
   color: #fff;
 }
 

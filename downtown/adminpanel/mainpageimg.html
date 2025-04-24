@@ -49,7 +49,7 @@
       transition: background-color 0.3s;
     }
     aside nav ul li a:hover {
-      background-color: #334155;
+      background-color: #05162f;
     }
     aside .logout {
       margin-top: auto;
@@ -140,21 +140,83 @@
         height: 40px;
         background-color: #081d3e;
         border: none;
-        color: white 
+        color: white;
+        cursor: pointer; 
     }
+    
     .button2{
         width: 180px;
         height: 40px;
         background-color: #e00606;
         border: none;
         color: white;
-    }
+        cursor: pointer;
+      }
+
     .button3{
         width: 180px;
         height: 40px;
         background-color: #0e9b06;
         border: none;
         color: white;
+        cursor: pointer;
+    }
+
+    #formOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(29, 7, 77, 0.5);
+      display: none; 
+    }
+
+    #popupForm{
+      background: #120655;
+      position: fixed;
+      display: none;
+      top:150px;
+      left:570px;
+      width: 400px;
+      height: 400px;
+      border-radius: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #popupForm label {
+      display: block;
+      margin: 10px 0 5px;
+      color: white;
+    }
+
+    #popupForm input[type="text"],
+    #popupForm input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+      background-color: #081d3e;
+    }
+
+    #popupForm button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #popupForm .submit-btn {
+      background-color: #2a128c;
+      color: #fff;
+      margin-right: 10px;
+    }
+
+    #popupForm .cancel-btn {
+      background-color: #ff0019;
+      color: #fff;
     }
   </style>
 </head>
@@ -178,21 +240,89 @@
     <div class="main-content">
       <header>
         <h1>Dashboard</h1>
-        <input type="search" placeholder="Search..." />
+        <input id="choice" list="choices" type="search" placeholder="Search..." />
+        <datalist id="choices">
+          <option value="Main Image">
       </header>
       <main>
+        <div id="formOverlay">
+          <div id="popupForm">
+            <form id="photoForm">
+              <label for="photoInput">Photo:</label>
+              <input type="file" id="photoInput" name="photo" accept="image/*" required>
+      
+              <label for="descInput">Description:</label>
+              <input type="text" id="descInput" name="description" placeholder="Enter photo description" required>
+      
+              <label for="nameInput">Image Name:</label>
+              <input type="text" id="nameInput" name="imageName" placeholder="Enter image name" required>
+      
+              <div style="text-align: right;">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="button" id="cancelForm" class="cancel-btn">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
         <div class="sections-grid">
-          <div id="decorations" class="section">
-              <h2>Main Image</h2>
-               <div class="btn">
-               <button class="button1">ADD</button>
-               <button class="button2">DELETE</button>
-               <button class="button3">UPDATE</button>
-               </div>
-            </div>
+          <div id="mainimage" class="section">
+            <h2>Main Image</h2>
+            <div class="btn">
+              <button class="button1" id="btn1">ADD</button>
+              <button class="button2" id="btn2">DELETE</button>
+              <button class="button3" id="btn3">UPDATE</button>
+              </div>
+             </div>
          </div>
         </main>
     </div>
   </div>
+  <script>
+    const formOverlay = document.getElementById('formOverlay');
+    const openFormBtns = document.querySelectorAll('.button1');
+    const popupForm = document.getElementById('popupForm');
+    const cancelForm = document.getElementById('cancelForm');
+    const photoForm = document.getElementById('photoForm');
+
+    openFormBtns.forEach(openformbtn=>{
+      openformbtn.addEventListener('click', () => {
+        formOverlay.style.display = 'flex';
+        popupForm.style.display = 'flex';
+      });
+    });
+
+    cancelForm.addEventListener('click', () => {
+      formOverlay.style.display = 'none';
+      popupForm.style.display = 'none';
+    });
+
+    photoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formOverlay.style.display = 'none';
+      popupForm.style.display = 'none';
+    });
+
+    const input=document.getElementById('choice');
+    const sections=document.querySelectorAll('.section');
+    input.addEventListener('keydown',function(e){
+      if(e.key==='Enter'){
+        e.preventDefault();
+        const query=input.value.trim().toLowerCase();
+        sections.forEach(section=>{
+          const title=section.querySelector('h2').textContent.toLowerCase();
+          section.style.display=(query && title===query)
+          ? 'flex' 
+          : 'none';
+        });
+      }
+    });
+    input.addEventListener('input',()=>{
+      if(input.value===''){
+        sections.forEach(section=>{
+          section.style.display='flex';
+        });
+      }
+    });
+  </script>
 </body>
 </html>

@@ -55,7 +55,7 @@
     }
 
     aside nav ul li a:hover {
-      background-color: #334155;
+      background-color: #05162f;
     }
 
     aside .logout {
@@ -153,6 +153,7 @@
         background-color: #081d3e;
         border: none;
         color: white;
+        cursor: pointer;
     }
     .button2{
         width: 95px;
@@ -160,6 +161,7 @@
         background-color: #e00606;
         border: none;
         color: white;
+        cursor: pointer;
     }
 
     .button3{
@@ -168,6 +170,7 @@
       background-color: #0e9b06;
       border: none;
       color: white;
+      cursor: pointer;
   }
   
     #formOverlay {
@@ -249,7 +252,18 @@
     <div class="main-content">
       <header>
         <h1>Dashboard</h1>
-        <input type="search" placeholder="Search..." />
+        <input id="choice" list="choices" type="search" placeholder="Search..."/>
+        <datalist id="choices">
+          <option value="Birthday">
+          <option value="Opening Ceremony">
+          <option value="Boys and Girls">
+          <option value="Hospital">
+          <option value="Chocolade">
+          <option value="Print">
+          <option value="Table Decorations">
+          <option value="Photo">
+          <option value="360 Videos">
+        </datalist>
       </header>
       <main>
         <div id="formOverlay">
@@ -350,15 +364,18 @@
   </div>
   <script>
     const formOverlay = document.getElementById('formOverlay');
-    const openFormBtn = document.getElementById('btn1');
+    const openFormBtns = document.querySelectorAll('.button1');
     const popupForm = document.getElementById('popupForm');
     const cancelForm = document.getElementById('cancelForm');
     const photoForm = document.getElementById('photoForm');
 
-    openFormBtn.addEventListener('click', () => {
-      formOverlay.style.display = 'flex';
-      popupForm.style.display = 'flex';
+    openFormBtns.forEach(openformbtn=>{
+      openformbtn.addEventListener('click', () => {
+        formOverlay.style.display = 'flex';
+        popupForm.style.display = 'flex';
+      });
     });
+
 
     cancelForm.addEventListener('click', () => {
       formOverlay.style.display = 'none';
@@ -369,6 +386,28 @@
       e.preventDefault();
       formOverlay.style.display = 'none';
       popupForm.style.display = 'none';
+    });
+
+    const input=document.getElementById('choice');
+    const sections=document.querySelectorAll('.section');
+    input.addEventListener('keydown', function(e){
+        if(e.key==='Enter'){
+          e.preventDefault();
+          const query = input.value.trim().toLowerCase();
+          sections.forEach(sec => {
+            const title = sec.querySelector('h2').textContent.trim().toLowerCase();
+            sec.style.display = (query && title === query)
+              ? 'flex' 
+              : 'none';
+          });
+        }
+    });
+    input.addEventListener('input', () => {
+      if (input.value === '') {
+        sections.forEach(sec => {
+          sec.style.display = 'flex';
+        });
+      }
     });
   </script>
 </body>

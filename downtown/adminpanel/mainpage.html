@@ -30,7 +30,7 @@
     /* Sidebar */
     aside {
       width: 240px;
-      background-color: #1e293b;
+      background-color: #081d3e;
       color: white;
       display: flex;
       flex-direction: column;
@@ -52,7 +52,7 @@
       transition: background-color 0.3s;
     }
     aside nav ul li a:hover {
-      background-color: #334155;
+      background-color: #05162f;
     }
     aside .logout {
       margin-top: auto;
@@ -148,7 +148,13 @@
     <div class="main-content">
       <header>
         <h1>Dashboard</h1>
-        <input type="search" placeholder="Search..." />
+        <input list="choices" type="search" placeholder="Search..." />
+        <datalist id="choices">
+          <option value="Main">
+          <option value="Portfolio">
+          <option value="Decorations">
+          <option value="Information">
+        </datalist>
       </header>
       <main>
         <div class="sections-grid" href="/downtown/adminpanel/mainpage.html">

@@ -90,7 +90,17 @@
       mouseY = e.clientY;
       cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
     });
-
+    window.addEventListener('scroll',()=>{
+      const cards=document.querySelectorAll('.card');
+      cards.forEach(card=>{
+        const rect=card.getBoundingClientRect();
+        if(mouseX>=rect.left && mouseX<=rect.right && mouseY>rect.top && mouseY<rect.bottom){
+          card.style.transform='scale(1.02)';
+        }else{
+          card.style.transform='scale(1)';
+        }
+      });
+    });
     function moveFollower() {
       followerX += (mouseX - followerX) * 0.1;
       followerY += (mouseY - followerY) * 0.1;
