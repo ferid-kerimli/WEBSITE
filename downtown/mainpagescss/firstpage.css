@@ -1,3 +1,22 @@
+::-webkit-scrollbar {
+    width: 10px;              
+    background-color: rgb(191, 180, 117); 
+  }
+  
+::-webkit-scrollbar-track {
+    background-color: rgb(191, 180, 117); 
+    border-radius: 4px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 146, 12); 
+    border-radius:20px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(95, 72, 4);     
+  }
+  
 html{
     position: relative;
     top: -7px;
@@ -63,7 +82,7 @@ html{
 .follower {
   width: 25px;
   height: 25px;
-  background-color: rgb(191, 180, 117);; 
+  background-color: rgb(191, 180, 117); 
   transition: transform 0.1s ease-out; 
   z-index: 11;
 }
@@ -80,7 +99,7 @@ section{
     padding-top: 70px;
     position: relative;
     overflow: hidden;   
-    width: 1521.2px;
+    width: 1528px;
     height: 940px;
 }
 
@@ -677,7 +696,16 @@ section{
 
 
    @media (max-width: 767px) {
-
+    #main-header{
+        display: flex;
+        width: 767px;
+        margin-top:15px;
+        margin-left: 55px;
+        height:10vh;
+        position:fixed;
+        top:0px;
+        z-index: 10;    
+    }
 
    }
    
