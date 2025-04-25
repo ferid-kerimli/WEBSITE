@@ -247,6 +247,15 @@
 
   <script src="/downtown/mainpagesjs/header.js"></script>
   <script>
+    const cards=document.querySelectorAll('.card');
+    cards.forEach(card=>{
+      card.addEventListener('mouseover',()=>{
+        card.style.transform='scale(1.02)';
+      });
+      card.addEventListener('mouseout',()=>{
+        card.style.transform='scale(1)';
+      });
+    }); 
     let currentPage = 1;
     const totalPages = 3;
 
@@ -265,7 +274,6 @@
       pageNumberElements[pageNumber - 1].classList.add('active');
 
       history.pushState({ page: pageNumber }, "", "?page=" + pageNumber);
-
       document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -314,7 +322,6 @@
     });
     
     window.addEventListener('scroll',()=>{
-      const cards=document.querySelectorAll('.card');
       cards.forEach(card=>{
         const rect=card.getBoundingClientRect();
         if(mouseX>=rect.left && mouseX<=rect.right && mouseY>rect.top && mouseY<rect.bottom){

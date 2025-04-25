@@ -5,29 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Panel</title>
   <style>
-    /* Global Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       font-family: Arial, sans-serif;
       background-color: #f3f4f6;
       color: #374151;
     }
+    
     a {
       text-decoration: none;
       color: inherit;
     }
+    
 
-    /* Container Layout */
     .container {
       display: flex;
       min-height: 100vh;
     }
+    
 
-    /* Sidebar */
     aside {
       width: 240px;
       background-color: #081d3e;
@@ -35,30 +36,36 @@
       display: flex;
       flex-direction: column;
     }
+    
     aside .logo {
       padding: 16px;
       font-size: 24px;
       font-weight: bold;
       border-bottom: 1px solid #334155;
     }
+    
     aside nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+    
     aside nav ul li a {
       display: block;
       padding: 12px 16px;
       transition: background-color 0.3s;
     }
+    
     aside nav ul li a:hover {
       background-color: #05162f;
     }
+    
     aside .logout {
       margin-top: auto;
       padding: 16px;
       border-top: 1px solid #334155;
     }
+    
     aside .logout button {
       width: 100%;
       padding: 10px;
@@ -69,9 +76,11 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+    
     aside .logout button:hover {
       background-color: #dc2626;
     }
+    
 
     /* Main Content Area */
     .main-content {
@@ -79,6 +88,7 @@
       display: flex;
       flex-direction: column;
     }
+    
     header {
       background-color: white;
       padding: 12px 16px;
@@ -87,16 +97,19 @@
       justify-content: space-between;
       align-items: center;
     }
+    
     header input[type="search"] {
       padding: 8px;
       border: 1px solid #d1d5db;
       border-radius: 4px;
     }
+    
     main {
       flex: 1;
       padding: 16px;
       overflow-y: auto;
     }
+    
 
     /* Sections Grid */
     .sections-grid {
@@ -104,6 +117,7 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
     }
+    
 
     /* Individual Section Cards */
     .section {
@@ -116,16 +130,19 @@
       flex-direction: column;
       align-items: center;
     }
+    
     .section h2 {
       margin-bottom: 12px;
       font-size: 18px;
       font-weight: bold;
     }
+    
     .section img {
       width: 100%;
       height: auto;
       border-radius: 4px;
     }
+    
   </style>
 </head>
 <body>

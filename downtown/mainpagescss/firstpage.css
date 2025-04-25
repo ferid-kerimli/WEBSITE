@@ -4,34 +4,43 @@ html{
     scroll-behavior: smooth;
 }
 
+
 #main-header{
   opacity: 0;
   animation: appear 5s ease 5s forwards;
 }
 
+
 @keyframes appear {
   from{
     opacity: 0;
   }
+  
   to{
     opacity: 1;
   }
+  
 }
+
 
 .Body{
   animation: slide 5s ease;
 }
 
+
 @keyframes slide {
   from{
     opacity: 0;
     transform: translateY(-30px);
-  }  
+  }
+    
   to{
     opacity: 1;
     transform: translateY(0px);
   }
+  
 }
+
 
 .cursor, .follower {
   position: fixed;
@@ -42,12 +51,14 @@ html{
   transform: translate(-50%, -50%);
 }
 
+
 .cursor {
   width: 12px;
   height: 12px;
   background-color: rgb(196, 171, 30); 
   z-index: 12; 
 }
+
 
 .follower {
   width: 25px;
@@ -57,11 +68,13 @@ html{
   z-index: 11;
 }
 
+
 section{
     margin-left: -10px;
     margin-right: -8px;
     overflow: hidden;
 }
+
 
 #section1{
     padding-top: 70px;
@@ -70,6 +83,7 @@ section{
     width: 1521.2px;
     height: 940px;
 }
+
 
 #section1::before {
   content: "";
@@ -85,6 +99,7 @@ section{
   transform: scaleX(var(--scale-y, 1));
 }
 
+
   .arrow{
     position: relative;
     top:-280px;
@@ -99,10 +114,12 @@ section{
     transition: transform 0.3s ease;
     cursor: none;
 }
+
  
 .arrow:hover{
     transform: scale(1.1);
 }
+
 
 .main1{
     display: flex;
@@ -114,6 +131,7 @@ section{
     color: white;   
 }
 
+
 .main1h1{
     margin-top: 40px;
     font-size:80px;
@@ -121,6 +139,7 @@ section{
     color: white;
     margin-bottom: 40px;
 }
+
 
 .main1p{
     color:white;
@@ -135,6 +154,7 @@ section{
     font-family: "Outfit", "Poppins", "Roboto";
 }
 
+
 .buttons{
     margin-left: 180px;
     margin-top: 50px;
@@ -144,6 +164,7 @@ section{
     width: 50%;
     position: absolute;
 }
+
 
 .whatwedo{   
     padding: 0 15px 0 50px;
@@ -157,6 +178,7 @@ section{
     transition: transform 0.3s ease;
 }
 
+
 .viewworks{
     padding: 0 15px 0 50px;
     width: 160px;
@@ -167,6 +189,7 @@ section{
     line-height:65px;
     transition: transform 0.3s ease;
 }
+
 
 .i1{
     width: 20px;
@@ -180,10 +203,12 @@ section{
     transition: transform 0.3s ease;
 }
 
+
 .i1::before{
     position: relative;
     top:1px;
 }
+
 
 .i2{
     width: 20px;
@@ -196,14 +221,17 @@ section{
     border-radius: 100%;
     transition: transform 0.3s ease;
 }
+
 .i2::before{
     position: relative;
     top:1px;
 }
+
 .circlearound{
     margin-left:1180px !important;
     position: absolute;
 }
+
 
 .svg1{
     position: absolute;
@@ -211,19 +239,24 @@ section{
     height: 160px;
 }
 
+
 .svg1 text{
     animation: rotateText 5s linear infinite;
     transform-origin: center;
   }
+  
 
 @keyframes rotateText {
     from {
         transform: rotate(0deg);
     }
+    
     to {
         transform: rotate(360deg);
     }
+    
 }
+
 
 .circle2{
     cursor: none;
@@ -232,15 +265,18 @@ section{
     transition: transform 1s ease;
 }
 
+
 .fa-arrow-down-long{
     background-color:rgb(158, 113, 35);
     color: white !important;   
     cursor: none;
 }
 
+
 .fa-arrow-down-long::before{
     cursor: none;
 }
+
 
 .i4-1::before{
     position: relative;
@@ -248,9 +284,11 @@ section{
     left:5px;
 }
 
+
 .i42-1{
     left: 1340px !important;
 }
+
 
 .i42-1::before{
     position: relative;
@@ -258,10 +296,12 @@ section{
     left:5px;
 }
 
+
 .main2{
     height: 940px;
     color: white;
 }
+
 
 .main2h2{
     margin-top:0px;
@@ -271,6 +311,7 @@ section{
     font-size: 70px;
     margin-bottom: 60px;
 }
+
 
 .main2p2{
     color: #666666; 
@@ -286,6 +327,7 @@ section{
     margin-bottom:30px;
 }
 
+
 .main2p3{
     color: grey;
     display: flex;
@@ -299,6 +341,7 @@ section{
     padding-left: 200px;
 }
 
+
 .main2-img1{
     position:absolute;
     width:450px; 
@@ -306,6 +349,7 @@ section{
     right: 190px;
     top:1100px;
 }
+
 
 .main2-about{
     display:flex;
@@ -316,11 +360,13 @@ section{
 
 }
 
+
 .main2-avatar{
     width:90px; 
     height:90px;
     margin-right: 30px;
 }
+
 
 .main2-img2{
     width:90px; 
@@ -328,15 +374,18 @@ section{
     border-radius:50%;
 }
 
+
 .main2-about-h1{
     font-size: 20px;
     position: relative;
     top:10px;
 }
 
+
 .main3{
     height: 940px;
 }
+
 
 .main3-heading{
     display: flex;
@@ -346,6 +395,7 @@ section{
     height: 250px;
     width: 1500px;
 }
+
 
 .main3h3{
     padding-top: 10px;
@@ -360,6 +410,7 @@ section{
     margin: 0px;
 }
 
+
 .buttons2{
     display: flex;
     border:  10px rgb(208, 199, 183) solid ;
@@ -372,6 +423,7 @@ section{
     left: 0px;
 }
 
+
 .whatwedo2{   
     padding: 0 15px 0 50px;
     width: 160px;
@@ -382,6 +434,7 @@ section{
     line-height:65px;
     transition: transform 0.3s ease;
 }
+
 
 .i3{
     width: 20px;
@@ -395,10 +448,12 @@ section{
     transition: transform 0.3s ease;
 }
 
+
 .i3::before{
     position: relative;
     top:1px;
 }
+
 
 .containers{
     margin-top: 300px;
@@ -412,11 +467,13 @@ section{
     top: -150px;
 }
 
+
 .container1{
     border:1px grey solid;
     width: 300px;
     background-image: url('/downtown/images/squareimages/dekorlar.jpg');
 }
+
 
 .container1 h1{
     margin-left:30px;
@@ -424,11 +481,13 @@ section{
     line-height: 150%;
 }
 
+
 .container2{
     border:1px grey solid;
     width: 300px;
     background-image: url('/downtown/images/squareimages/openingceremony.jpg');
 }
+
 
 .container2 h1{
     margin-left: 30px;
@@ -436,11 +495,13 @@ section{
     line-height: 150%;
 }
 
+
 .container3{
     border:1px white solid;
     width: 300px;
     background-image: url('/downtown/images/squareimages/360.jpg');
 }
+
 
 .container3 h1{
     margin-left:30px;
@@ -448,11 +509,13 @@ section{
     line-height: 150%;
 }
 
+
 .container4{
     border:1px grey solid;
     width: 300px;
     background-image: url('/downtown/images/squareimages/masabezedilmesi.jpg');
 }
+
 
 .container4 h1{
     margin-left: 30px;
@@ -460,10 +523,12 @@ section{
     line-height: 150%;
 }
 
+
 .containers h1{
     padding-top:30px;
     font-size:20px;
 }
+
 
 .containers-p{
     margin-top:40px !important;
@@ -481,6 +546,7 @@ section{
     transition: opacity 2s ease;
 }
 
+
 .i4{
     position: relative;
     top: 60px;
@@ -495,11 +561,13 @@ section{
     z-index: 5;
 }
 
+
 .i4::before{
     position: relative;
     top:7.5px;
     left:7px;
 }
+
 
 .blackscreen{
   position: relative;
@@ -513,10 +581,12 @@ section{
   z-index: 4;
 }
 
+
 .main4{
     height: 940px;
     color: white;
 }
+
 
 .main4h5{
     padding-top: 150px;
@@ -526,12 +596,14 @@ section{
     margin-bottom: -60px;
 }
 
+
 .main4h6{
     width: 350px;
     padding-left: 200px;
     font-size: 70px;
     margin-bottom: 60px;
 }
+
 
 .main4p4{
     color: #666666; 
@@ -547,6 +619,7 @@ section{
     margin-bottom:30px;
 }
 
+
 .main4p5{
     color: grey;
     display: flex;
@@ -560,6 +633,7 @@ section{
     padding-left: 200px;
     margin-bottom: 60px;
 }
+
 .buttons3{
     position: relative;
     left: 164px;
@@ -570,6 +644,7 @@ section{
     padding-bottom:110px;
     padding-left: 30px;
 }
+
 .whatwedo3{
     padding: 0 15px 0 50px;
     width: 160px;
@@ -580,6 +655,7 @@ section{
     line-height:65px;
     transition: transform 0.3s ease;
 }
+
 
 .i5{
     width: 20px;
@@ -593,15 +669,18 @@ section{
     transition: transform 0.3s ease;
 }
 
+
 .i5::before{
     position: relative;
     top:1px;
 }
 
+
    @media (max-width: 767px) {
 
 
    }
+   
    @media (min-width: 2265px){
     #main-header{
         display: flex;
@@ -612,7 +691,8 @@ section{
         position:fixed;
         top:0px;
         z-index: 10;    
-    } 
+    }
+     
 
     #section1{
         padding-top: 70px;
@@ -621,6 +701,7 @@ section{
         width: 2265px;
         height: 940px;
     }
+    
 
     #section1::before {
         content: "";
@@ -635,6 +716,7 @@ section{
         transition: transform 0.5s ease;
         transform: scaleX(var(--scale-y, 1));
       }
+      
 
     .A{
         transition: color 0.3s ease-in-out;
@@ -642,7 +724,8 @@ section{
         font-size:45px;
         margin-right:1825px;
         cursor: none;
-    }   
+    }
+       
 
      .menu-icon{
         margin-top: 10px;
@@ -651,6 +734,7 @@ section{
         cursor: none;
         transition: color 0.3s ease;
     }
+    
     .arrow{
         position: relative;
         top:-280px;
@@ -665,12 +749,16 @@ section{
         transition: transform 0.3s ease;
         cursor: none;
     }
+    
     .i42-1{
         left: 1980px !important;
     }
+    
     .circlearound{
         margin-left:1880px !important;
         position: absolute;
     }
+    
   }
+  
   
