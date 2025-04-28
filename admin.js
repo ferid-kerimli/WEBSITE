@@ -5,7 +5,7 @@ console.log('▶ Starting admin.js');
 app.get('/login.html', (req, res) => {
   console.log('Got request for /login.html, headers:', req.headers);
 
-  res.sendFile(path.join(__dirname,'downtown', 'adminpanel', 'login.html'), err => {
+  res.sendFile(path.join(__dirname,'login.html'), err => {
     if (err) console.error('sendFile error:', err);
     else    console.log('login.html sent ✔️');
   });
