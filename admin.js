@@ -8,7 +8,10 @@ app.use(
     path.join(__dirname, 'downtown', 'images', 'adminpanelimages')
   )
 );
-
+app.use(
+  '/downtown/adminpanel',
+  express.static(path.join(__dirname, 'downtown','adminpanel'))
+);
 app.get('/login.html', (req, res) => {
   res.sendFile(path.join(__dirname,'login.html'), err => {
     if (err) console.error('sendFile error:', err);
@@ -23,6 +26,6 @@ app.get('/mainpage.html', (req, res) => {
 });
 app.post('/login', (req, res) => {
   return res.redirect('/mainpage.html');
-}); 
+});
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`✅ listening on :${PORT}`));

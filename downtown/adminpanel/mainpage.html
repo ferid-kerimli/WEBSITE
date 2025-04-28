@@ -157,8 +157,8 @@
           <li><a href="/downtown/adminpanel/info.html">Information</a></li>
         </ul>
       </nav>
-      <a class="logout" href="/downtown/adminpanel/login.html">
-        <button>Logout</button>
+      <a class="logout" href="login.html">
+        <button class="logout">Logout</button>
       </a>
     </aside>
 
@@ -198,5 +198,11 @@
       </main>
     </div>
   </div>
+  <script>
+    const button=document.querySelector('.logout');
+    button.addEventListener('click',()=>{
+      window.location.href='/login.html';
+    });
+  </script>
 </body>
 </html>
