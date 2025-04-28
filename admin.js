@@ -2,7 +2,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 console.log('▶ Starting admin.js');
-app.use(express.static(path.join(__dirname, '/downtown/images/adminpanelimages'))); 
+app.use(
+  '/downtown/images/adminpanelimages',
+  express.static(
+    path.join(__dirname, 'downtown', 'images', 'adminpanelimages')
+  )
+);
+
 app.get('/login.html', (req, res) => {
   res.sendFile(path.join(__dirname,'login.html'), err => {
     if (err) console.error('sendFile error:', err);
