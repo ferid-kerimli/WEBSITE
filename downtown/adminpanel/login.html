@@ -110,6 +110,7 @@
 <body>
   <div class="login-container">
     <h2>Login</h2>
+    <form action="/login" method="post">
       <div class="form-group">
         <label for="username">Email</label>
         <input type="text" id="username" name="username" placeholder="Enter your email" required>
@@ -123,17 +124,14 @@
         <label for="remember">Remember me</label>
       </div>
       <button type="submit" id="loginBtn">Login</button>
+    </form>
   </div>
   <script>
+    const errEl = document.getElementById('err');
     const params = new URLSearchParams(window.location.search);
-    if (params.get('error')) {
-      document.getElementById('err').textContent = 
-        'Invalid email or password';
+    if (params.get('error') === '1' && errEl) {
+      errEl.textContent = '⚠️ Invalid email or password';
     }
-    const button=document.getElementById('loginBtn');
-    button.addEventListener('click',()=>{
-      window.location.href='mainpage.html';
-    });
     
   </script>
 </body>

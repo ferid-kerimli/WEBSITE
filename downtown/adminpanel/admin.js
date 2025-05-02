@@ -12,23 +12,12 @@ app.use(session({
 }));
 
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  '/',
-  express.static(__dirname)
-);
-app.use(
-  '/downtown/images/adminpanelimages',
-  express.static(
-    path.join(__dirname, '..', 'images', 'adminpanelimages')
-  )
-);
 app.get('/login.html', (req, res, next) => {
   if (req.session.authenticated) {
     return res.redirect('/mainpage.html');
   }
-  next();    
+  res.sendFile(path.join(__dirname, 'login.html'));    
 });
-
 app.post('/login', (req, res) => {
   const {username,password}=req.body;
   const ALLOWED_USER = 'kerim';
@@ -40,11 +29,34 @@ app.post('/login', (req, res) => {
   }
   res.redirect('/login.html?error=1');
 });
-app.get('/mainpage.html', (req, res, next) => {
+function requireAuth(req, res, next) {
   if (!req.session.authenticated) {
     return res.redirect('/login.html');
   }
   next();
+}
+app.get(
+  ['/mainpage.html','/portf.html','/decor.html','/info.html'],
+  requireAuth,
+  (req, res) => {
+    res.sendFile(path.join(__dirname, req.path));
+  }
+);
+
+app.get('/logout', (req, res, next) => {
+  req.session.destroy(err => {
+    if (err) return next(err);
+    res.clearCookie('connect.sid');
+    res.redirect('/login.html');
+  });
 });
+app.use('/', express.static(__dirname));
+app.use(
+  '/downtown/images/adminpanelimages',
+  express.static(
+    path.join(__dirname, '..', 'images', 'adminpanelimages')
+  )
+);
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`✅ listening on :${PORT}`));
