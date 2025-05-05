@@ -14,7 +14,7 @@ app.use(session({
 app.use(express.urlencoded({ extended: false }));
 app.get('/login', (req, res, next) => {
   if (req.session.authenticated) {
-    return res.redirect('/mainpage.html');
+    return res.sendFile(path.join(__dirname,'downtown','adminpanel', 'mainpage.html'));
   }
  return res.sendFile(path.join(__dirname,'downtown','adminpanel', 'login.html'));
 });
@@ -27,16 +27,17 @@ app.post('/login', (req, res) => {
     req.session.authenticated = true;
     return res.sendFile(path.join(__dirname,'downtown','adminpanel', 'mainpage.html'));
   }
-  res.redirect('/login.html?error=1');
+  res.redirect('/login?error=1');
 });
 function requireAuth(req, res, next) {
   if (!req.session.authenticated) {
-    return res.redirect('/login.html');
+    return res.redirect('/login');
   }
   next();
 }
+
 app.get(
-  ['/mainpage.html','/portf.html','/decor.html','/info.html'],
+  ['/mainpage.html','/mainpageimg.html','/portf.html','/decor.html','/info.html'],
   requireAuth,
   (req, res) => {
     const name = req.path.replace(/^\//, '');
@@ -48,8 +49,8 @@ app.get('/logout', (req, res, next) => {
   req.session.destroy(err => {
     if (err) return next(err);
     res.clearCookie('connect.sid');
-    res.redirect('/login.html');
-  });
+    res.redirect('/login');
+    });
 });
 app.use('/', express.static(__dirname));
 app.use(
