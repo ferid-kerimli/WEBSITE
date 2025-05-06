@@ -16,7 +16,7 @@ app.get('/login', (req, res, next) => {
   if (req.session.authenticated) {
     return res.sendFile(path.join(__dirname,'downtown','adminpanel', 'mainpage.html'));
   }
- return res.sendFile(path.join(__dirname,'downtown','adminpanel', 'login.html'));
+  res.sendFile(path.join(__dirname,'downtown','adminpanel', 'login.html'));
 });
 app.post('/login', (req, res) => {
   const {username,password}=req.body;
