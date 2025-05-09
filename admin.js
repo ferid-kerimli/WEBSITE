@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 
+const PUBLIC_ROOT = path.join(__dirname, 'public_html');
+
 const app = express();
 console.log('▶ Starting admin.js');
 
@@ -12,12 +14,15 @@ app.use(session({
 }));
 
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(PUBLIC_ROOT));
+
 app.get('/login', (req, res, next) => {
   if (req.session.authenticated) {
-    return res.sendFile(path.join(__dirname,'downtown','adminpanel', 'mainpage.html'));
+    return res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel','mainpage.html'));
   }
-  res.sendFile(path.join(__dirname,'downtown','adminpanel', 'login.html'));
+  res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel','login.html'));
 });
+
 app.post('/login', (req, res) => {
   const {username,password}=req.body;
   const ALLOWED_USER = 'kerim';
@@ -25,7 +30,7 @@ app.post('/login', (req, res) => {
 
   if (username === ALLOWED_USER && password === ALLOWED_PASS) {
     req.session.authenticated = true;
-    return res.sendFile(path.join(__dirname, 'downtown','adminpanel', 'mainpage.html'));
+    return res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel', 'mainpage.html'));
   }
   res.redirect('/login?error=1');
 });
@@ -41,7 +46,7 @@ app.get(
   requireAuth,
   (req, res) => {
     const name = req.path.replace(/^\//, '');
-    res.sendFile(path.join(__dirname, 'downtown','adminpanel', name));
+    res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel', name));
     }
 );
 
