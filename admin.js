@@ -30,7 +30,7 @@ app.post('/login', (req, res) => {
 
   if (username === ALLOWED_USER && password === ALLOWED_PASS) {
     req.session.authenticated = true;
-    return res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel', 'mainpage.html'));
+    return res.redirect('https://downtownbaku.com/admin/mainpage.html');
   }
   res.redirect('/login?error=1');
 });
