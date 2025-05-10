@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const cors = require('cors');
-
+const app = express();
 app.use(cors({
   origin: 'https://downtownbaku.com',
   credentials: true
@@ -10,7 +10,7 @@ app.use(cors({
 
 const PUBLIC_ROOT = path.join(__dirname, 'public_html');
 
-const app = express();
+
 console.log('▶ Starting admin.js');
 
 app.use(session({
