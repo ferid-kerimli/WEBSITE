@@ -1,6 +1,12 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://downtownbaku.com',
+  credentials: true
+}));
 
 const PUBLIC_ROOT = path.join(__dirname, 'public_html');
 
@@ -30,9 +36,9 @@ app.post('/login', (req, res) => {
 
   if (username === ALLOWED_USER && password === ALLOWED_PASS) {
     req.session.authenticated = true;
-    return res.redirect('https://downtownbaku.com/admin/mainpage.html');
+    return res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel','mainpage.html'));
   }
-  res.redirect('/login?error=1');
+  return res.redirect('https://downtownbaku.com/login/?error=1');
 });
 function requireAuth(req, res, next) {
   if (!req.session.authenticated) {
