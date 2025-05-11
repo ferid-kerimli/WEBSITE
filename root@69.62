@@ -8,7 +8,7 @@ app.use(cors({
   credentials: true
 }));
 
-const PUBLIC_ROOT = path.join(__dirname, 'public_html');
+const PUBLIC_ROOT = path.join(__dirname,'..', 'public_html');
 
 
 console.log('▶ Starting admin.js');
