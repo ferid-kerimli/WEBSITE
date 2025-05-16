@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node",
+    "start": "node index.js",
     "dev": "nodemon"
   },
   "repository": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ferid-kerimli/WEB#readme",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-session": "^1.18.1"
   }
