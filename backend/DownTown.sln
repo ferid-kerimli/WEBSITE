@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownTown", "DownTown\DownTown.csproj", "{384420BE-A5DD-403F-8C87-5FBD36C83839}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E27F120-9646-48AA-8431-805D8FF638FD}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{384420BE-A5DD-403F-8C87-5FBD36C83839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384420BE-A5DD-403F-8C87-5FBD36C83839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384420BE-A5DD-403F-8C87-5FBD36C83839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384420BE-A5DD-403F-8C87-5FBD36C83839}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
