@@ -47,6 +47,16 @@ fa_arrow_down_long.addEventListener('mouseout', ()=>{
     circle2.style.transform='scale(1)';
 });
 
+const arrows=document.querySelectorAll('.arrow');
+arrows.forEach(arrow=>{
+    arrow.addEventListener('mouseover', ()=>{
+    arrow.style.transform='scale(1.1)';
+});
+    arrow.addEventListener('mouseout', ()=>{
+    arrow.style.transform='scale(1)';
+});
+});
+
 const whatwedo=document.querySelector('.whatwedo');
 const i1=document.querySelector('.i1');
 

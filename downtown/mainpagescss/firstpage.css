@@ -17,6 +17,7 @@
     background: rgb(95, 72, 4);     
   }
   
+
 html{
     position: relative;
     top: -7px;
@@ -112,7 +113,7 @@ section{
   width: 100%;
   height: 100%;
   background-image: var(--bg-image);
-  background-size: cover;
+  background-size:cover;
   background-position: center;
   transition: transform 0.5s ease;
   transform: scaleX(var(--scale-y, 1));
@@ -132,11 +133,6 @@ section{
     border-radius:100%;
     transition: transform 0.3s ease;
     cursor: none;
-}
-
- 
-.arrow:hover{
-    transform: scale(1.1);
 }
 
 
