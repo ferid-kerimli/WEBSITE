@@ -22,14 +22,14 @@ app.use(session({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(PUBLIC_ROOT));
 
-app.get('/login', (req, res, next) => {
+app.get('/api/login', (req, res, next) => {
   if (req.session.authenticated) {
     return res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel','mainpage.html'));
   }
   res.sendFile(path.join(PUBLIC_ROOT, 'downtown','adminpanel','login.html'));
 });
 
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
   const {username,password}=req.body;
   const ALLOWED_USER = 'kerim';
   const ALLOWED_PASS = 'kerim123';
